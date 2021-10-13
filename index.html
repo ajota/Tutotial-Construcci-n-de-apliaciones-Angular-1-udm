@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="prueba">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>repl.it</title>
+        <link href="main.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" />
+    </head>
+    <body>
+    	<div ng-controller="pruebaController as p">
+    		{{p.nombre}}
+    		<br>
+    		<input type="text" name="nombreUsuario" id="nombreUsuario" ng-model="p.nombre">
+			<div ng-controller="prueba2Controller as p2">
+				
+				<form name="formUsuario" novalidate ng-submit="return true">
+				  <div class="form-group">
+				    <label for="email">Email address:</label>
+				    <input type="email" name="email" ng-model-options="{updateOn: 'Submit'}" ng-model="p2.email" class="form-control" id="email" required>
+				    <div ng-show="formUsuario.email.$invalid" style="color:red;" class="">Esta mal</div>
+				  </div>
+				  {{p2.email}}
+				  <div class="form-group">
+				    <label for="pwd">Password:</label>
+				    <input type="password" name="pass" id="pass" ng-model="p2.password" class="form-control" required>
+				    <div  ng-show="formUsuario.pass.$invalid" style="color:red;" class="">Esta mal</div>
+				  </div>
+				  {{formUsuario | json}}
+				  <div class="checkbox">
+				    <label><input type="checkbox"> Remember me</label>
+				  </div>
+				  <button type="submit" class="btn btn-default">Submit</button>
+				</form>
+			</div>
+    	</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+    	<script type="text/javascript" src="app.js"></script>
+    	
+    </body>
+</html>
